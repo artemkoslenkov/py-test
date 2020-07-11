@@ -1,0 +1,14 @@
+version: '2.0'
+services:
+  python:
+    build: ./docker/python
+    container_name: python
+    ports:
+    - "5000:5000"
+    volumes:
+    - ./src:/root/src:rw
+    links:
+    - mongo
+  mongo:
+    container_name: mongodb
+    image: library/mongo:3.6.18-xenial
