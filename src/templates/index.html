@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <form action="/mock" method="get">
+        <button name="generate" type="submit">Generate</button>
+    </form>
+    <form action="/remove" method="get">
+        <button name="generate" type="submit">Clean all</button>
+    </form>
+    <form action="/match" method="get">
+        <button name="generate" type="submit">Match</button>
+    </form>
+</table>
+
+<table style="width:30%">
+    <tr>
+        <th id="id">Id</th>
+        <th id="offering">Offering</th>
+        <th id="seeking">Seeking</th>
+        <th id="match">Match</th>
+    </tr>
+
+    {% for item in items %}
+    <tr>
+        <td><p> {{ item.id }} </p></td>
+        <td><p> {{ item.offering }} </p></td>
+        <td><p> {{ item.seeking }} </p></td>
+        <td><p> {{ item.match }} </p></td>
+        {% endfor %}
+    </tr>
+</table>
